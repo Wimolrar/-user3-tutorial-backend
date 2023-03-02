@@ -42,7 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: dev
-      url: https://github.com/<username>/<username>-tutorial-backend/security/code-scanning
+      url: https://github.com/wimolrar/user3-tutorial-backend/security/code-scanning
     permissions:
       actions: read
       contents: read
@@ -83,13 +83,13 @@ jobs:
     needs: [unitest,analyze]
     environment:
       name: dev
-      url: https://github.com/<username>/<username>-tutorial-backend/actions/workflows/dev-tutorial-backend-deploy.yml
+      url: https://github.com/wimolrar/user3-tutorial-backend/actions/workflows/dev-tutorial-backend-deploy.yml
 
     steps:
     - name: Repository Dispatch
       uses: peter-evans/repository-dispatch@v1
       with:
         token: ${{ secrets.WORKFLOW_TOKEN }}
-        repository: <username>/<username>-pipeline
-        event-type: <username>-tutorial-backend-cd-dev
+        repository: wimolrar/user3-pipeline
+        event-type: user3-tutorial-backend-cd-dev
         client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
