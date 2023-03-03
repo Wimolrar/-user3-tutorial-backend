@@ -24,6 +24,7 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         target: https://app-user3-az-usw3-uat-001.azurewebsites.net/api/tutorials
+        
     - name: Create sarif file from zaproxy results
       uses: SvanBoxel/zaproxy-to-ghas@main
     - name: Upload SARIF file
